@@ -52,6 +52,7 @@ export const IngredientForm = ({
               {...field}
               className="dark:text-black"
               isMulti={true}
+              closeMenuOnSelect={false}
               options={ingredientOptions}
               placeholder="Search Ingredients"
               onChange={(selectedOption) => field.onChange(selectedOption)}

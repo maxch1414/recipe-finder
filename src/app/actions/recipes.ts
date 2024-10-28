@@ -92,7 +92,6 @@ export const fetchFilteredRecipes = async (ingredientList: string[]) => {
       )
     );
 
-    console.log(filteredRecipes);
     return filteredRecipes;
   } catch (error) {
     console.error("Error fetching recipes:", error);

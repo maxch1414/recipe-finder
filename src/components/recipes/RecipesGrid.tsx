@@ -25,8 +25,6 @@ export function RecipesGrid({ recipes }: Readonly<Props>) {
   const [open, setOpen] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState<FullRecipe | null>(null);
 
-  if (!recipes.length) return;
-
   const filteredRecipes = recipes.filter((recipe) => {
     const matchesSearch =
       searchQuery === "" ||
@@ -58,7 +56,7 @@ export function RecipesGrid({ recipes }: Readonly<Props>) {
             </div>
             <Select onValueChange={setSelectedOrigin}>
               <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Select an origin" />
+                <SelectValue placeholder="Select an Origin" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
@@ -69,7 +67,6 @@ export function RecipesGrid({ recipes }: Readonly<Props>) {
                       {recipe.strArea}
                     </SelectItem>
                   ))}
-                  <SelectItem value={"random"}>Random</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -86,7 +83,6 @@ export function RecipesGrid({ recipes }: Readonly<Props>) {
                       {recipe.strCategory}
                     </SelectItem>
                   ))}
-                  <SelectItem value={"random"}>Random</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>

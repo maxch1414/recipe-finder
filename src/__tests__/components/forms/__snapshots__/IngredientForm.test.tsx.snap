@@ -10,6 +10,7 @@ exports[`Renders a ingredient form correctly 1`] = `
     >
       <div
         class="dark:text-black css-b62m3t-container"
+        id="ingredient-select"
       >
         <span
           class="css-1f43avz-a11yText-A11yText"

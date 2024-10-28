@@ -52,7 +52,7 @@ exports[`Renders the recipes grid correctly 1`] = `
           <span
             style="pointer-events: none;"
           >
-            Select an origin
+            Select an Origin
           </span>
           <svg
             aria-hidden="true"
@@ -110,6 +110,7 @@ exports[`Renders the recipes grid correctly 1`] = `
       >
         <div
           class="rounded-xl border bg-card text-card-foreground shadow overflow-hidden cursor-pointer"
+          data-testid="recipe-card"
           role="griditem"
         >
           <div
@@ -141,6 +142,7 @@ exports[`Renders the recipes grid correctly 1`] = `
         </div>
         <div
           class="rounded-xl border bg-card text-card-foreground shadow overflow-hidden cursor-pointer"
+          data-testid="recipe-card"
           role="griditem"
         >
           <div

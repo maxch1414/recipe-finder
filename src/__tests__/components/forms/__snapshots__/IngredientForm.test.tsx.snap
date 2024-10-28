@@ -60,9 +60,10 @@ exports[`Renders a ingredient form correctly 1`] = `
               data-value=""
             >
               <input
-                aria-activedescendant=""
+                aria-activedescendant="react-select-ingredient-select-option-1"
                 aria-autocomplete="list"
-                aria-expanded="false"
+                aria-controls="react-select-ingredient-select-listbox"
+                aria-expanded="true"
                 aria-haspopup="true"
                 autocapitalize="none"
                 autocomplete="off"
@@ -117,6 +118,27 @@ exports[`Renders a ingredient form correctly 1`] = `
                   d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
                 />
               </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          class="css-1nmdiq5-menu"
+        >
+          <div
+            aria-multiselectable="true"
+            class="css-qr46ko"
+            id="react-select-ingredient-select-listbox"
+            role="listbox"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="css-d7l1ni-option"
+              id="react-select-ingredient-select-option-1"
+              role="option"
+              tabindex="-1"
+            >
+              Test Ingredient 2
             </div>
           </div>
         </div>

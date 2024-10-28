@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm, Controller, SubmitHandler, useWatch } from "react-hook-form";
 import { Ingredient } from "../../lib/types";
 import { Button } from "../ui/button";
@@ -19,6 +19,9 @@ export const IngredientForm = ({
   ingredients,
   onSubmit,
 }: IngredientFormProps) => {
+  const [activeDescendant, setActiveDescendant] = useState<
+    string | undefined
+  >();
   const { control, handleSubmit } = useForm<FormValues>();
 
   const ingredientOptions = ingredients.map((ingredient) => ({
@@ -52,10 +55,18 @@ export const IngredientForm = ({
               {...field}
               className="dark:text-black"
               isMulti={true}
+              closeMenuOnSelect={false}
               options={ingredientOptions}
               placeholder="Search Ingredients"
               onChange={(selectedOption) => field.onChange(selectedOption)}
               instanceId="ingredient-select"
+              id="ingredient-select"
+              onFocus={(e) => {
+                const id = e.currentTarget.getAttribute("id");
+                setActiveDescendant(id!);
+              }}
+              onMenuClose={() => setActiveDescendant(undefined)}
+              aria-activedescendant={activeDescendant}
             />
           )}
         />

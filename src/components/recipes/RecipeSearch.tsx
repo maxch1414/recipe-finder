@@ -5,6 +5,7 @@ import { FullRecipe, Ingredient } from "../../lib/types";
 import { IngredientForm } from "../forms/IngredientForm";
 import { RecipesGrid } from "./RecipesGrid";
 import { fetchFilteredRecipes } from "@/app/actions/recipes";
+import { RecipesGridSkeleton } from "../skeletons/RecipeGrid";
 
 type RecipeSearchProps = {
   ingredients: Ingredient[];
@@ -12,9 +13,11 @@ type RecipeSearchProps = {
 
 export const RecipeSearch = ({ ingredients }: RecipeSearchProps) => {
   const [recipes, setRecipes] = useState<FullRecipe[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchRecipes = async (ingredientIds: string[]) => {
     try {
+      setIsLoading(true);
       const recipes = await fetchFilteredRecipes(ingredientIds);
       const validRecipes: FullRecipe[] = recipes.map((recipe) => ({
         ...recipe,
@@ -25,6 +28,8 @@ export const RecipeSearch = ({ ingredients }: RecipeSearchProps) => {
       setRecipes(validRecipes);
     } catch (error) {
       console.error("Error fetching recipes:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -32,7 +37,11 @@ export const RecipeSearch = ({ ingredients }: RecipeSearchProps) => {
     <div>
       <IngredientForm ingredients={ingredients} onSubmit={fetchRecipes} />
       <div className="mt-4">
-        <RecipesGrid recipes={recipes} />
+        {isLoading ? (
+          <RecipesGridSkeleton />
+        ) : (
+          <RecipesGrid recipes={recipes} />
+        )}
       </div>
     </div>
   );

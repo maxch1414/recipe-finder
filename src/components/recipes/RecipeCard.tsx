@@ -19,6 +19,7 @@ export const RecipeCard = ({ recipe, setSelectedRecipe, openModal }: Props) => {
       className="overflow-hidden cursor-pointer"
       role="griditem"
       onClick={handleClick}
+      data-testid="recipe-card"
     >
       <CardHeader className="p-0">
         <div className="relative h-48 w-full">
